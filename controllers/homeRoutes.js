@@ -11,4 +11,6 @@ router.get('/posts/:id', async (req, res) => {});
 router.get('/userposts', async (req, res) => {});
 
 //render login page
-router.get('/login', async (req, res) => {});
+router.get('/login', async (req, res) => {
+    
+});
