@@ -3,7 +3,7 @@ const { Posts } = require('../../models');
 
 
 
-// CREATE new user
+// CREATE new post
 router.post('/', async (req, res) => {
     try {
         //collects the post data
