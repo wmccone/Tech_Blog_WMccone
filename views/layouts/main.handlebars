@@ -46,12 +46,12 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/dashboard">Dashboard</a>
                     </li>
-                    {{#if loggedIn}}
+                    {{#if logged_in}}
                     <li class="nav-item">
                         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/logout">Logout</a>
+                        <button class="btn btn-primary" type="submit" id="logout">Logout</button>
                     </li>
                     {{else}}
                     <li class="nav-item">
@@ -68,6 +68,7 @@
 
     <!-- <i class="fas fa-grin-squint"></i> -->
     {{{ body }}}
+    <script src="./js/logout.js"></script>
 </body>
 
 </html>

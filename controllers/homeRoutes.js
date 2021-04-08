@@ -52,7 +52,13 @@ router.get('/posts/:id', async (req, res) => {
 });
 
 //render user posts
-router.get('/userposts', async (req, res) => {});
+router.get('/dashboard', async (req, res) => {
+  if (!req.session.logged_in) {
+    res.redirect('/login');
+    return;
+  }
+  res.render('dashboard');
+});
 
 //render login page
 router.get('/login', async (req, res) => {
@@ -62,5 +68,14 @@ router.get('/login', async (req, res) => {
       }
     
       res.render('login');
+});
+
+router.get('/signup', async (req, res) => {
+  if (req.session.logged_in) {
+      res.redirect('/userposts');
+      return;
+    }
+  
+    res.render('signup');
 });
 module.exports = router;
