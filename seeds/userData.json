@@ -1,0 +1,17 @@
+[
+    {
+        "name": "Yoshi",
+        "email": "Yoshi@dinosaur.com",
+        "password": "password"
+    },
+    {
+        "name": "TheRock",
+        "email": "dwayne@therock.com",
+        "password": "password"
+    },
+    {
+        "name": "CapFalc",
+        "email": "TheCap@bluefalcon.com",
+        "password": "password"
+    }
+]
