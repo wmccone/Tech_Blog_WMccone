@@ -56,7 +56,9 @@ router.get('/newpost', async (req, res) => {
     res.redirect('/login');
     return;
   }
-    res.render('newpost');
+    res.render('newpost', {
+      logged_in: req.session.logged_in
+    });
    
 });
 
