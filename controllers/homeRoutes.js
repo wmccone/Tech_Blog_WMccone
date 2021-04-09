@@ -16,22 +16,16 @@ router.get('/', async (req, res) => {
 
     // Serialize data so the template can read it
     const posts = postData.map((post) => post.get({ plain: true }));
-    // const sessionInstance = {
-    //   logged_in: req.session.logged_in,
-    //   session_id: req.session.user_id
-    // }
-    const authPosts = posts.map((post)=> {
-      return {...post, session_id: req.session.user_id}
+    // This is going to allow us to read the session ID in handlebars
+    const authPosts = posts.map((post) => {
+      return { ...post, session_id: req.session.user_id }
     })
     // Pass serialized data and session flag into template I will create
     res.render('homepage', {
       posts: authPosts,
       logged_in: req.session.logged_in,
-      session_id: req.session.user_id
-      
+
     });
-    console.log(req.session.user_id)
-    console.log(req.session.logged_in)
   } catch (err) {
     res.status(500).json(err);
   }
@@ -39,7 +33,7 @@ router.get('/', async (req, res) => {
 });
 
 //render posts by id
-router.get('/posts/:id', async (req, res) => {
+router.get('/post/:id', async (req, res) => {
   try {
     const postData = await Posts.findByPk(req.params.id, {
       include: [
@@ -57,10 +51,66 @@ router.get('/posts/:id', async (req, res) => {
       logged_in: req.session.logged_in,
       session_id: req.session.user_id
     });
-    console.log(req.session.user_id)
+
   } catch (err) {
     res.status(500).json(err);
   }
+});
+router.get('/dashboard', async (req, res) => {
+  if (!req.session.logged_in) {
+    res.redirect('/login');
+    return;
+  }
+  try {
+    // Get all posts and JOIN with user data
+    const postData = await Posts.findAll({
+      where: {
+        user_id: req.session.user_id
+      },
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+      ],
+    });
+
+    // Serialize data so the template can read it
+    const posts = postData.map((post) => post.get({ plain: true }));
+    const authPosts = posts.map((post) => {
+      return { ...post, session_id: req.session.user_id }
+    })
+
+    // Pass serialized data and session flag into template I will create
+    res.render('dashboard', {
+      posts: authPosts,
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/editpost/:id', async (req, res) => {
+  if (!req.session.logged_in) {
+    res.redirect('/login');
+    return;
+  }
+  const postData = await Posts.findByPk(req.params.id, {
+    include: [
+      {
+        model: User,
+        attributes: ['name'],
+      },
+    ],
+  });
+  const posts = postData.get({ plain: true });
+
+  res.render('editpost', {
+    ...posts,
+    logged_in: req.session.logged_in
+
+  });
 });
 
 router.get('/newpost', async (req, res) => {
@@ -96,37 +146,6 @@ router.get('/newcomment/:id', async (req, res) => {
 });
 
 //renders the list of user posts
-router.get('/dashboard', async (req, res) => {
-  if (!req.session.logged_in) {
-    res.redirect('/login');
-    return;
-  }
-  try {
-    // Get all posts and JOIN with user data
-    const postData = await Posts.findAll({
-      where: {
-        user_id: req.session.user_id
-      },
-      include: [
-        {
-          model: User,
-          attributes: ['name'],
-        },
-      ],
-    });
-
-    // Serialize data so the template can read it
-    const posts = postData.map((post) => post.get({ plain: true }));
-
-    // Pass serialized data and session flag into template I will create
-    res.render('dashboard', {
-      posts,
-      logged_in: req.session.logged_in
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
 
 //render login page
 router.get('/login', async (req, res) => {

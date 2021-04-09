@@ -27,7 +27,6 @@ router.post('/', async (req, res) => {
       const postData = await Posts.update({
         subject: req.body.subject,
         content_body: req.body.contentBody,
-        user_id: req.session.user_id
       }, {
         where: {
           id: req.params.id,

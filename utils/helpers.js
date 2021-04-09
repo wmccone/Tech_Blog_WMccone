@@ -8,8 +8,6 @@ module.exports = {
       }`;
     },
     check_user: (postUser, currentUser) => {
-      console.log(postUser)
-      console.log(currentUser)
       if(postUser==currentUser){
         return true
       }
