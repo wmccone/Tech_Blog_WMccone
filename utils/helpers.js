@@ -7,4 +7,12 @@ module.exports = {
         new Date(date).getFullYear() + 5
       }`;
     },
+    check_user: (postUser, currentUser) => {
+      if(postUser===currentUser){
+        return true
+      }
+      else{
+        return false
+      }
+    }
   };
