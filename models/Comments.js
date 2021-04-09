@@ -22,20 +22,6 @@ Comments.init(
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
-    post_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'posts',
-        key: 'id',
-      },
-    },
-    user_id: {
-        type: DataTypes.INTEGER,
-        references: {
-          model: 'user',
-          key: 'id',
-        },
-    },
   },
   {
     sequelize,
