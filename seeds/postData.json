@@ -3,7 +3,7 @@
         "subject": "Its tough to be a dinosaur in a Plumbers world",
         "content_body": "I always get thrown around and left on the side of the road",
         "date_created": "01/01/2020",
-        "user_id": 1
+        "user_id": 3
     },
     {
         "subject": "Its tough to be a rock in the movie industry",
@@ -15,6 +15,6 @@
         "subject": "Its tough to be a captain when your ship floats",
         "content_body": "I always get thrown around and left on the side of the road",
         "date_created": "01/01/2020",
-        "user_id": 3
+        "user_id": 1
     }
 ]
