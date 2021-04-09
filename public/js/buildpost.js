@@ -4,7 +4,7 @@ const postBlog = async (event) => {
   const contentBody = document.querySelector('#content-body').value.trim();
 
   if (subject && contentBody) {
-    const response = await fetch('/api/blogposts/', {
+    const response = await fetch('/api/blogposts', {
       method: 'POST',
       body: JSON.stringify({ subject, contentBody }),
       headers: { 'Content-Type': 'application/json' },
@@ -18,4 +18,6 @@ const postBlog = async (event) => {
   }
 };
 
-document.querySelector('.blog-form').addEventListener('click', postBlog);
+document
+.querySelector('.blog-form')
+.addEventListener('submit', postBlog);
