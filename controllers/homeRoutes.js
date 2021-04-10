@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Posts, User } = require('../models');
+const { Posts, User, Comments } = require('../models');
 
 //render homepage
 router.get('/', async (req, res) => {
@@ -40,6 +40,9 @@ router.get('/post/:id', async (req, res) => {
         {
           model: User,
           attributes: ['name'],
+        },
+        {
+          model: Comments,
         },
       ],
     });
