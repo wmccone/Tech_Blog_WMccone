@@ -49,7 +49,7 @@ router.get('/post/:id', async (req, res) => {
     });
 
     const post = postData.get({ plain: true });
-    //find all comments associated with a post
+    // find all comments associated with a post
     const commentData = await Comments.findAll({
       where: {
         post_id: req.params.id

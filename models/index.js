@@ -15,6 +15,7 @@ Posts.hasMany (Comments, {
 
 // These are going to associate the comments to a USER
 
+
 Comments.belongsTo(User, {
     foreignKey: 'user_id',
     onDelete: 'CASCADE'
