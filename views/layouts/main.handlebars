@@ -16,12 +16,8 @@
     <!-- font awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" rel="stylesheet">
 
-    <!-- favicons (will work on later or delete)-->
-    <!-- <link rel="icon" type="image/png" sizes="32x32" href="#"> -->
-    <!-- <link rel="icon" type="image/png" sizes="16x16" href="#"> -->
 
-    <!-- custom stylesheet (overwrites bootstrap in the cascade) -->
-    <link href="./assets/css/style.css" rel="stylesheet">
+    
 
     <!-- new tegomin google font (potential logo font) -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -29,9 +25,8 @@
 </head>
 
 <body>
-    <!-- potential icon for logo -->
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">The Tech Blog</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -48,7 +43,7 @@
                     </li>
                     {{#if logged_in}}
                     <li class="nav-item">
-                        <button class="btn btn-primary" type="submit" id="logout">Logout</button>
+                        <button class="btn btn-primary" type="submit" id="logout" >Logout</button>
                     </li>
                     {{else}}
                     <li class="nav-item">
