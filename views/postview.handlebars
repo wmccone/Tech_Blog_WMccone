@@ -14,6 +14,7 @@
             <a href="/editpost/{{id}}"><button class="btn btn-primary position-relative start-50 translate-middle-x"
                     type="submit">Edit Post</button></a>
             <i class="fas fa-trash-alt delete-button position-relative start-100 " id="delete-button"></i>
+            <script src="../js/deletepost.js"></script>
             {{else}}
             <a href="/newcomment/{{id}}"><button class="btn btn-primary position-relative start-50 translate-middle-x"
                     type="submit">Leave
@@ -28,4 +29,4 @@
 {{> comment-details }}
 {{/each}}
 <script src="../js/logout.js"></script>
-<script src="../js/deletepost.js"></script>
+
