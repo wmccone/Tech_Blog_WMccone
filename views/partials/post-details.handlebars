@@ -3,11 +3,10 @@
     <div class="col-md-8">
         <div class="card text-white bg-dark border-primary m-3 p-4">
             
-            <p> Written by: {{user.name}} <span class="date-tag">Date Posted:{{date_created}}</p></span>
-            <h4 class="card-title border-bottom border-4">{{subject}} </h4>
-            <br>
-            <p>{{content_body}}</p>
-            <a href="/post/{{id}}"><button class="btn btn-primary" type="submit" style="float: right;">View Post</button></a>
+            <p> Written by: {{user.name}} <span class="date-tag">Date Posted:{{format_date date_created}}</p></span>
+            <h4 class="card-title ">{{subject}} <a href="/post/{{id}}"><button class="btn btn-primary" type="submit" style="float: right;">View Post</button></a> </h4>
+
+            
             
         </div>
     </div>
