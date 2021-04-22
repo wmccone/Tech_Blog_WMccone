@@ -1,0 +1,20 @@
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <div class="card text-white bg-success m-3 p-4">
+
+            <p> {{name}} <span class="date-tag">Date Posted:{{format_date date_created}}</span><span hidden id="comment-id" value="{{id}}"></span></p>
+            <h4 class="card-title border-bottom border-4"></h4>
+            <br>
+            <p>{{content}}</p>
+            {{!-- {{#if (check_user user_id session_id)}}
+            
+            <i class="fas fa-trash-alt position-relative start-100 " id="delete-comment"></i>
+            {{else}}
+
+            {{/if}} --}}
+
+        </div>
+    </div>
+    <div class="col-md-2"></div>
+</div>

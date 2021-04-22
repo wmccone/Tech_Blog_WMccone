@@ -1,0 +1,32 @@
+<link href="../css/style.css" rel="stylesheet">
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <div class="card text-white bg-dark border-primary m-3 p-4">
+            <p> Written by: {{user.name}} <span class="date-tag">Date Posted:{{format_date date_created}}</span><span hidden id="post-id" value="{{id}}"></span></p>
+            
+            <h4 class="card-title border-bottom border-4">{{subject}} </h4>
+            <br>
+            <p>{{content_body}}</p>
+
+            {{#if (check_user user_id session_id)}}
+            
+            <a href="/editpost/{{id}}"><button class="btn btn-primary position-relative start-50 translate-middle-x"
+                    type="submit">Edit Post</button></a>
+            <i class="fas fa-trash-alt delete-button position-relative start-100 " id="delete-button"></i>
+            <script src="../js/deletepost.js"></script>
+            {{else}}
+            <a href="/newcomment/{{id}}"><button class="btn btn-primary position-relative start-50 translate-middle-x"
+                    type="submit">Leave
+                    Comment</button></a>
+            {{/if}}
+
+        </div>
+    </div>
+    <div class="col-md-2"></div>
+</div>
+{{#each comments as |comments|}}
+{{> comment-details }}
+{{/each}}
+<script src="../js/logout.js"></script>
+
