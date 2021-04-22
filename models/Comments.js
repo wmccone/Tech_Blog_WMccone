@@ -11,6 +11,11 @@ Comments.init(
       primaryKey: true,
       autoIncrement: true,
     },
+    //stores the username
+    comment_user: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     //stores content of comment
     content: {
       type: DataTypes.STRING,
