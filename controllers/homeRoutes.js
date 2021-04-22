@@ -53,19 +53,13 @@ router.get('/post/:id', async (req, res) => {
     const commentData = await Comments.findAll({
       where: {
         post_id: req.params.id
-      },
-      include: [
-        {
-          model: User,
-          attributes: ['name'],
-        },
-      ],
+      }
     });
     const comments = commentData.map((post) => post.get({ plain: true }));
-
+    console.log(comments)
     res.render('postview', {
       ...post,
-      ...comments,
+      comments,
       logged_in: req.session.logged_in,
       session_id: req.session.user_id
     });

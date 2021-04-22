@@ -9,7 +9,7 @@ router.post('/', async (req, res) => {
         //collects the comment data
       const commentData = await Comments.create({
         content: req.body.content,
-        post_id: req.body.post_id,
+        post_id: req.body.postId,
         user_id: req.session.user_id,
         comment_user: req.session.user_name
 

@@ -1,6 +1,21 @@
 <link href="./css/style.css" rel="stylesheet">
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <div class="card text-white bg-dark border-primary m-3 p-4">
+            <p> Written by: Walter McCone <span class="date-tag">Date Posted:4/10/2021</span></p>
+
+            <h4 class="card-title border-bottom border-4">Welcome to the Tech-Blog Application </h4>
+            <br>
+            <p>You are now on the Tech blog. This project was created by Walter McCone as his first Full-Stack web
+                application. Feel free to create an account and play around with the functionality.</p>
+        </div>
+    </div>
+    <div class="col-md-2"></div>
+</div>
 {{#each posts as |post|}}
 {{> post-details}}
 {{/each}}
-<a href="/newpost"><button class="btn btn-primary position-relative start-50 translate-middle-x" type="submit">Post New</button></a>
- <script src="./js/logout.js"></script>
+<a href="/newpost"><button class="btn btn-primary position-relative start-50 translate-middle-x" type="submit">Post
+        New</button></a>
+<script src="./js/logout.js"></script>
