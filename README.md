@@ -16,7 +16,7 @@
   ## Installation
 
   No Installation needed, go to the link provided.
-  [TheTechBlog](https://protected-dawn-39901.herokuapp.com/)
+  [TheTechBlog](https://wmccone-tech-blog.herokuapp.com/)
 
   ## Usage
 
